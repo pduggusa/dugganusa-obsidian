@@ -1,0 +1,10 @@
+{
+  "id": "dugganusa-threat-intel",
+  "name": "DugganUSA Threat Intel",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Look up IPs, domains, hashes, CVEs against 1M+ threat indicators. Right-click any text for instant enrichment.",
+  "author": "DugganUSA LLC",
+  "authorUrl": "https://www.dugganusa.com",
+  "isDesktopOnly": false
+}
