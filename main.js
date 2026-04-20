@@ -42,6 +42,17 @@ module.exports = class DugganUSAPlugin extends Plugin {
       },
     });
 
+    // Command: check Tor relay
+    this.addCommand({
+      id: "check-tor-relay",
+      name: "Check if IP is a Tor relay",
+      editorCallback: async (editor) => {
+        const selection = editor.getSelection().trim();
+        if (!selection) { new Notice("Select an IP address first."); return; }
+        await this.checkTorRelay(editor, selection);
+      },
+    });
+
     // Context menu on right-click
     this.registerEvent(
       this.app.workspace.on("editor-menu", (menu, editor) => {
@@ -103,6 +114,43 @@ module.exports = class DugganUSAPlugin extends Plugin {
       modal.open();
       input.focus();
     });
+  }
+
+  async checkTorRelay(editor, ip) {
+    new Notice("DugganUSA: checking Tor relay " + ip + "...");
+    const apiKey = this.settings?.apiKey || "";
+
+    try {
+      const headers = { Accept: "application/json" };
+      if (apiKey) headers["Authorization"] = "Bearer " + apiKey;
+
+      const res = await requestUrl({
+        url: API_URL + "/tor/relays?q=" + encodeURIComponent(ip) + "&limit=1",
+        headers,
+      });
+
+      const json = res.json;
+      const relays = json.data?.relays || json.data?.hits || [];
+
+      if (relays.length > 0 && relays[0].address === ip) {
+        const r = relays[0];
+        const flags = Array.isArray(r.flags) ? r.flags.join(", ") : (r.flags || "");
+        const enrichment = "\n> [!warning] Tor Relay: " + ip +
+          "\n> **Nickname:** " + (r.nickname || "?") +
+          "\n> **Flags:** " + flags +
+          "\n> **Country:** " + (r.country || "?") +
+          "\n> **ASN:** " + (r.asnOrg || r.asn || "?") +
+          "\n> **Bandwidth:** " + (r.bandwidth || "?") +
+          "\n> [View relay details](" + API_URL + "/tor/relay/" + encodeURIComponent(r.fingerprint || ip) + ")\n";
+        const cursor = editor.getCursor();
+        editor.replaceRange(enrichment, { line: cursor.line + 1, ch: 0 });
+        new Notice("🧅 Tor relay found: " + (r.nickname || ip));
+      } else {
+        new Notice("✅ " + ip + " is NOT a known Tor relay");
+      }
+    } catch (e) {
+      new Notice("DugganUSA: Tor check error — " + (e.message || e));
+    }
   }
 
   onunload() {}
