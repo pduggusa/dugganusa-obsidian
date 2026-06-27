@@ -1,6 +1,16 @@
 # DugganUSA Threat Intel — Obsidian Plugin
 
-**Paste an IP in your notes. Get threat enrichment inline. 1,080,000+ IOCs for OSINT researchers.**
+**Paste an IP in your notes. Get threat enrichment inline. 1.10M+ IOCs for OSINT researchers.**
+
+## What's New
+
+The corpus this plugin queries now exposes **three live, no-auth, durable validation endpoints** so you can verify feed quality for yourself — they survive deploys, so the numbers are real:
+
+- **Novelty** — [feed-uniqueness](https://analytics.dugganusa.com/api/v1/feed-uniqueness): ~75%+ of what we publish is **not in ThreatFox**.
+- **Timeliness** — [kev-lead](https://analytics.dugganusa.com/api/v1/kev-lead): we flag exploited CVEs roughly **31 days ahead of CISA KEV** on average.
+- **Accuracy** — [spamhaus-validation](https://analytics.dugganusa.com/api/v1/spamhaus-validation): Spamhaus **independently corroborates** our first-hand contributions.
+
+The IOC you paste into a note is checked against intel that is independently novel, early, and corroborated. (We cap our own claims at 95% honest confidence.)
 
 ## Features
 
@@ -17,6 +27,10 @@ Community plugins submission pending. Install manually:
 2. Create folder: `.obsidian/plugins/dugganusa-threat-intel/`
 3. Copy the three files into that folder
 4. Obsidian → Settings → Community Plugins → Enable "DugganUSA Threat Intel"
+
+## API Key (Free, Required)
+
+The DugganUSA feed is **API-key-enforced** — anonymous requests return `401` and an unregistered token returns `429`. The free tier is a **free registered key**, not anonymous access. Register (30 seconds, no card) at [analytics.dugganusa.com/stix/register](https://analytics.dugganusa.com/stix/register), then paste your `dugusa_...` key into the plugin settings.
 
 ## What It Looks Like
 

@@ -93,7 +93,7 @@ module.exports = class DugganUSAPlugin extends Plugin {
         editor.replaceRange(enrichment, { line: cursor.line + 1, ch: 0 });
         new Notice("⚠️ " + totalHits + " threat hits for " + value);
       } else {
-        new Notice("✅ " + value + " — clean (not in 1.08M+ IOC index)");
+        new Notice("✅ " + value + " — clean (not in 1.10M+ IOC index)");
       }
     } catch (e) {
       new Notice("DugganUSA: API error — " + (e.message || e));
