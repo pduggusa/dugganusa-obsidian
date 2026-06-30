@@ -1,16 +1,17 @@
 # DugganUSA Threat Intel — Obsidian Plugin
 
-**Paste an IP in your notes. Get threat enrichment inline. 1.10M+ IOCs for OSINT researchers.**
+**Paste an IP in your notes. Get threat enrichment inline. 1.5M+ IOCs for OSINT researchers.**
 
 ## What's New
 
-The corpus this plugin queries now exposes **three live, no-auth, durable validation endpoints** so you can verify feed quality for yourself — they survive deploys, so the numbers are real:
+The corpus this plugin queries now exposes **four live, no-auth, durable validation endpoints** so you can verify feed quality for yourself — they survive deploys, so the numbers are real:
 
 - **Novelty** — [feed-uniqueness](https://analytics.dugganusa.com/api/v1/feed-uniqueness): ~75%+ of what we publish is **not in ThreatFox**.
-- **Timeliness** — [kev-lead](https://analytics.dugganusa.com/api/v1/kev-lead): we flag exploited CVEs roughly **31 days ahead of CISA KEV** on average.
+- **Timeliness** — [kev-lead](https://analytics.dugganusa.com/api/v1/kev-lead): a live ledger of how far ahead of CISA KEV we flagged each exploited CVE — positive leads, same-day, and no-receipt all shown honestly, with receipts.
 - **Accuracy** — [spamhaus-validation](https://analytics.dugganusa.com/api/v1/spamhaus-validation): Spamhaus **independently corroborates** our first-hand contributions.
+- **Liveness** — [feed-efficacy](https://analytics.dugganusa.com/api/v1/feed-efficacy): opt-in consumer reports of when our indicators actually fire on real traffic — proof the feed is operationally live, not just large.
 
-The IOC you paste into a note is checked against intel that is independently novel, early, and corroborated. (We cap our own claims at 95% honest confidence.)
+The IOC you paste into a note is checked against intel that is independently novel, early, corroborated, and provably live. (We cap our own claims at 95% honest confidence.)
 
 ## Features
 
