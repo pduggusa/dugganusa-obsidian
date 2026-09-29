@@ -1,6 +1,6 @@
 # DugganUSA Threat Intel — Obsidian Plugin
 
-**Paste an IP in your notes. Get threat enrichment inline. 1.5M+ IOCs for OSINT researchers.**
+**Paste an IP in your notes. Get threat enrichment inline. 1.9M+ IOCs for OSINT researchers.**
 
 ## What's New
 
