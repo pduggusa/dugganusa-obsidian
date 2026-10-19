@@ -35,7 +35,7 @@ Community plugins submission pending. Install manually:
 
 ## API Key (Free, Required)
 
-The DugganUSA feed is **API-key-enforced** — anonymous requests return `401` and an unregistered token returns `429`. The free tier is a **free registered key**, not anonymous access. Register (30 seconds, no card) at [analytics.dugganusa.com/stix/register](https://analytics.dugganusa.com/stix/register), then paste your `dugusa_...` key into the plugin settings.
+The DugganUSA feed is **API-key-enforced** — anonymous requests and unregistered keys return `401`; a key past its daily limit (free: 10/day) returns `429`. The free tier is a **free registered key**, not anonymous access. Register (30 seconds, no card) at [analytics.dugganusa.com/stix/register](https://analytics.dugganusa.com/stix/register), then paste your `dugusa_...` key into the plugin settings.
 
 ## What It Looks Like
 
