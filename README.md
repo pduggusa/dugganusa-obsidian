@@ -1,5 +1,7 @@
 # DugganUSA Threat Intel — Obsidian Plugin
 
+**Docs:** https://docs.dugganusa.com/quickstart/
+
 **You do you. I do me. We share contexts.**
 
 Your notes stay in your vault; only the indicator you look up leaves, and the DugganUSA Feed's context comes back inline.
@@ -43,7 +45,7 @@ Select `185.39.19.176` in your notes, right-click → "DugganUSA: Look up":
 
 > [!warning] DugganUSA: 185.39.19.176
 > Cobalt Strike C2 (via SSLBL) · Blocked 47x · 3 pulse(s) (12 cross-index hits)
-> [View full enrichment](https://analytics.dugganusa.com/api/v1/search/correlate?q=185.39.19.176)
+> [View full enrichment](https://analytics.dugganusa.com/api/v1/search/correlate?q=185.39.19.176) (free key required)
 
 ## Part of the DugganUSA Ecosystem
 
